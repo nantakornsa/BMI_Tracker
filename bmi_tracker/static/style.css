@@ -1,0 +1,62 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container .card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.card h1 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.card input[type=text],
+.card input[type=number] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: #45a049;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.result.underweight { background-color: #3498db; }
+.result.normal { background-color: #2ecc71; }
+.result.overweight { background-color: #f1c40f; color: #333; }
+.result.obese { background-color: #e74c3c; }

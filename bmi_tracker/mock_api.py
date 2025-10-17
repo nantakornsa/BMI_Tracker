@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
-from fastapi import FastAPI
 
-app = FastAPI()
+
 app = Flask(__name__)
 
 nutrition_data = {

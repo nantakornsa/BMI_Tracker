@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Tracker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-xl w-full">
+        <h1 class="text-3xl font-bold text-center mb-6 text-purple-700">BMI Tracker</h1>
+
+        <!-- Form -->
+        <form method="post" action="/calculate" class="space-y-4">
+            <div>
+                <label for="name" class="block text-gray-700 font-semibold">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required
+                    class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300">
+            </div>
+            <div>
+                <label for="weight" class="block text-gray-700 font-semibold">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" placeholder="e.g., 60" step="0.1" required
+                    class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300">
+            </div>
+            <div>
+                <label for="height" class="block text-gray-700 font-semibold">Height (cm):</label>
+                <input type="number" id="height" name="height" placeholder="e.g., 170" step="0.1" required
+                    class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300">
+            </div>
+            <button type="submit"
+                class="w-full bg-purple-500 text-white font-bold py-2 rounded-lg hover:bg-purple-600 transition">
+                Calculate BMI
+            </button>
+        </form>
+
+        <!-- Result -->
+        {% if bmi %}
+        <div class="mt-6 p-4 bg-purple-50 rounded-lg text-center">
+            <h2 class="text-xl font-semibold mb-2">Hello, {{ name }}!</h2>
+            <p class="text-lg">Your BMI is <span class="font-bold text-purple-700">{{ bmi }}</span></p>
+            {% if bmi_chart %}
+            <div class="mt-4">
+                <h3 class="text-md font-semibold mb-2">Your BMI Trend</h3>
+                <img src="data:image/png;base64,{{ bmi_chart }}" alt="BMI Chart" class="mx-auto rounded-lg shadow-md">
+            </div>
+            {% endif %}
+            {% if nutrition %}
+            <p class="mt-4 text-green-700 font-semibold">{{ nutrition }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
