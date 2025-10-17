@@ -1,0 +1,42 @@
+name: Automated QA Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # ดึงโค้ดจาก repo
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # ติดตั้ง Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    # ติดตั้ง dependencies
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install flake8 black pytest coverage
+
+    # ตรวจสไตล์โค้ด (linting)
+    - name: Lint with flake8
+      run: flake8 .
+
+    # ตรวจรูปแบบโค้ด (format check)
+    - name: Format check with black
+      run: black --check .
+
+    # รันทดสอบและวัด coverage
+    - name: Run tests with coverage
+      run: |
+        coverage run -m pytest
+        coverage report -m

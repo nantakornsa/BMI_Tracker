@@ -1,0 +1,102 @@
+{
+    "Auto": [
+        {
+            "weight": 85.0,
+            "height": 177.0,
+            "bmi": 27.13,
+            "record_date": "2025-10-07"
+        },
+        {
+            "weight": 73.0,
+            "height": 177.0,
+            "bmi": 23.3,
+            "record_date": "2025-10-07"
+        },
+        {
+            "weight": 70.0,
+            "height": 177.0,
+            "bmi": 22.34,
+            "record_date": "2025-10-07"
+        }
+    ],
+    "Auto0824": [
+        {
+            "weight": 88.0,
+            "height": 177.0,
+            "bmi": 28.09,
+            "record_date": "2025-10-07"
+        }
+    ],
+    "Kiettipong phadermsak": [
+        {
+            "weight": 77.0,
+            "height": 177.0,
+            "bmi": 24.58,
+            "record_date": "2025-10-07"
+        },
+        {
+            "weight": 88.0,
+            "height": 177.0,
+            "bmi": 28.09,
+            "record_date": "2025-10-06"
+        },
+        {
+            "weight": 77.0,
+            "height": 177.0,
+            "bmi": 24.58,
+            "record_date": "2025-10-05"
+        },
+        {
+            "weight": 77.0,
+            "height": 177.0,
+            "bmi": 24.58,
+            "record_date": "2025-10-0"
+        }
+    ],
+    "Jeng": [
+        {
+            "weight": 80.0,
+            "height": 176.0,
+            "bmi": 25.83,
+            "record_date": "2025-10-07"
+        }
+    ],
+    "Tang": [
+        {
+            "weight": 70.0,
+            "height": 171.0,
+            "bmi": 23.94,
+            "record_date": "2025-10-07"
+        }
+    ],
+    "Peerased": [
+        {
+            "weight": 50.0,
+            "height": 170.0,
+            "bmi": 17.3,
+            "record_date": "2025-10-07"
+        }
+    ],
+    "skibidi": [
+        {
+            "weight": 77.0,
+            "height": 190.0,
+            "bmi": 21.33,
+            "record_date": "2025-10-07"
+        }
+    ],
+    "Teen": [
+        {
+            "weight": 70.0,
+            "height": 175.0,
+            "bmi": 22.86,
+            "record_date": "2025-10-17"
+        },
+        {
+            "weight": 90.0,
+            "height": 175.0,
+            "bmi": 29.39,
+            "record_date": "2025-10-17"
+        }
+    ]
+}
