@@ -47,6 +47,50 @@
             "height": 175.0,
             "bmi": 22.86,
             "record_date": "2025-10-18"
+        },
+        {
+            "weight": 90.0,
+            "height": 175.0,
+            "bmi": 29.39,
+            "record_date": "2025-10-18"
+        },
+        {
+            "weight": 90.0,
+            "height": 175.0,
+            "bmi": 29.39,
+            "record_date": "2025-10-18"
+        },
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
+        },
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
+        }
+    ],
+    "Testing": [
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
+        },
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
+        },
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
         }
     ]
 }

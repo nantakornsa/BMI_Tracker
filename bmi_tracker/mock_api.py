@@ -10,13 +10,13 @@ nutrition_data = {
 }
 
 
-@app.route("/nutrition/<bmi_category>", methods=["GET"])
+@app.route("/nutrition/<bmi_category>", methods=["GET","POST"])
 def get_nutrition(bmi_category):
     foods = nutrition_data.get(bmi_category, [])
     return jsonify({"foods": foods})
 
 
-@app.route("/nutrition", methods=["POST"])
+@app.route("/nutrition", methods=["POST","GET"])
 def post_nutrition():
     data = request.json
     bmi = data.get("bmi")

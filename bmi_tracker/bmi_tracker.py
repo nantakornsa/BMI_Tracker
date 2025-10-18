@@ -91,13 +91,16 @@ db = DatabaseJSON()
 # Nutrition Advice
 # -----------------------------
 def get_nutrition_advice(bmi):
+    print("Sending BMI to Flask API:", bmi)
     url = "http://127.0.0.1:5000/nutrition"  # หรือ API จริง
     try:
         response = requests.post(url, json={"bmi": bmi})
+        print("Flask API response:", response.text)
         response.raise_for_status()
         foods = response.json().get("foods", [])
         return f"Suggested food: {', '.join(foods)}"
     except:
+        print("Error fetching nutrition advice:", e)
         return "Unable to fetch nutrition advice right now."
 
 # -----------------------------
@@ -120,6 +123,9 @@ def calculate_bmi(request: Request, weight: float = Form(...), height: float = F
 
     # สร้างกราฟเป็น base64 (ตรวจสอบ history)
     bmi_chart = plot_bmi_to_base64(history, name) if history else None
+    
+    # ส่งค่า nutriton ไปยัง templstes
+    nutrition = get_nutrition_advice(user.bmi)
 
     # ส่งค่าไป template
     return templates.TemplateResponse(
@@ -128,7 +134,8 @@ def calculate_bmi(request: Request, weight: float = Form(...), height: float = F
             "request": request,
             "name": name,
             "bmi": round(user.bmi, 2),
-            "bmi_chart": bmi_chart
+            "bmi_chart": bmi_chart,
+            "nutrition": nutrition
         }
     )
 
