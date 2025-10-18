@@ -99,7 +99,7 @@ def get_nutrition_advice(bmi):
         response.raise_for_status()
         foods = response.json().get("foods", [])
         return f"Suggested food: {', '.join(foods)}"
-    except:
+    except Exception as e:
         print("Error fetching nutrition advice:", e)
         return "Unable to fetch nutrition advice right now."
 
