@@ -91,22 +91,17 @@ db = DatabaseJSON()
 # Nutrition Advice
 # -----------------------------
 def get_nutrition_advice(bmi):
-    url = "http://127.0.0.1:5000/nutrition"
+    url = "https://flask-api-o8h2.onrender.com"
     try:
         response = requests.post(url, json={"bmi": bmi})
         print("HTTP status:", response.status_code)
-        print("Response text:", response.text)  # <-- ดูว่าได้อะไรจริง
+        print("Response text:", response.text) 
         response.raise_for_status()
         foods = response.json().get("foods", [])
         return f"Suggested food: {', '.join(foods)}"
     except Exception as e:
         print("Error fetching nutrition advice:", e)
         return "Unable to fetch nutrition advice right now."
-def get_nutrition_advice(bmi):
-    url = "https://your-fastapi-service.onrender.com/api/nutrition"
-    response = requests.post(url, json={"bmi": bmi})
-    foods = response.json().get("foods", [])
-    return f"Suggested food: {', '.join(foods)}"
 
 # -----------------------------
 # Web Routes
