@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 
 def plot_bmi_to_base64(history, username):
@@ -39,6 +40,14 @@ def plot_bmi_to_base64(history, username):
 # FastAPI
 # -----------------------------
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 templates = Jinja2Templates(directory="bmi_tracker/templates")
 app.mount("/static", StaticFiles(directory="bmi_tracker/static"), name="static")
 
@@ -93,7 +102,7 @@ db = DatabaseJSON()
 # -----------------------------
 def get_nutrition_advice(bmi):
     # ใช้ URL ของ FastAPI service เอง
-    url = "http://localhost:8000/api/nutrition"  # บน Render จะเปลี่ยน host เป็น Render URL
+   url = "https://bmi-tracker-final.onrender.com"  # <-- เปลี่ยนเป็น URL จริงของคุณ!
     try:
         response = requests.post(url, json={"bmi": bmi})
         response.raise_for_status()
@@ -102,7 +111,6 @@ def get_nutrition_advice(bmi):
     except Exception as e:
         print("Error fetching nutrition advice:", e)
         return "Unable to fetch nutrition advice right now."
-
 # -----------------------------
 # Web Routes
 # -----------------------------
