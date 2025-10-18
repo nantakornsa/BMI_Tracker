@@ -91,11 +91,10 @@ db = DatabaseJSON()
 # Nutrition Advice
 # -----------------------------
 def get_nutrition_advice(bmi):
-    url = "https://flask-api-o8h2.onrender.com"
+    # ใช้ URL ของ FastAPI service เอง
+    url = "http://localhost:8000/api/nutrition"  # บน Render จะเปลี่ยน host เป็น Render URL
     try:
         response = requests.post(url, json={"bmi": bmi})
-        print("HTTP status:", response.status_code)
-        print("Response text:", response.text) 
         response.raise_for_status()
         foods = response.json().get("foods", [])
         return f"Suggested food: {', '.join(foods)}"
@@ -138,4 +137,20 @@ def calculate_bmi(request: Request, weight: float = Form(...), height: float = F
             "nutrition": nutrition
         }
     )
+    
+@app.post("/api/nutrition")
+def nutrition_api(bmi: float):
+    if bmi < 18.5:
+        category = "underweight"
+    elif bmi < 25:
+        category = "normal"
+    else:
+        category = "overweight"
+
+    nutrition_data = {
+        "underweight": ["chicken breast", "eggs", "nuts"],
+        "normal": ["balanced meal with rice, veggies, protein"],
+        "overweight": ["steamed vegetables", "salad", "lean protein"],
+    }
+    return JSONResponse({"foods": nutrition_data[category]})
 
