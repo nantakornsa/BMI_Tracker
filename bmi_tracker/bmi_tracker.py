@@ -11,6 +11,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import io
 import base64
+from pydantic import BaseModel
 
 
 def plot_bmi_to_base64(history, username):
@@ -138,8 +139,12 @@ def calculate_bmi(request: Request, weight: float = Form(...), height: float = F
         }
     )
     
+class BMIRequest(BaseModel):
+    bmi: float
+    
 @app.post("/api/nutrition")
-def nutrition_api(bmi: float):
+def nutrition_api(data: BMIRequest):
+    bmi = data.bmi
     if bmi < 18.5:
         category = "underweight"
     elif bmi < 25:
@@ -152,5 +157,5 @@ def nutrition_api(bmi: float):
         "normal": ["balanced meal with rice, veggies, protein"],
         "overweight": ["steamed vegetables", "salad", "lean protein"],
     }
-    return JSONResponse({"foods": nutrition_data[category]})
+    return {"foods": nutrition_data[category]}
 
