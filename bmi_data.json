@@ -109,6 +109,18 @@
             "height": 175.0,
             "bmi": 24.49,
             "record_date": "2025-10-18"
+        },
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
+        },
+        {
+            "weight": 75.0,
+            "height": 175.0,
+            "bmi": 24.49,
+            "record_date": "2025-10-18"
         }
     ],
     "Test": [

@@ -101,8 +101,8 @@ db = DatabaseJSON()
 # Nutrition Advice
 # -----------------------------
 def get_nutrition_advice(bmi):
-    # ใช้ URL ของ FastAPI service เอง
-    url = "https://bmi-tracker-final.onrender.com"  # <-- เปลี่ยนเป็น URL จริงของคุณ!
+    # ✅ ใช้ URL ของ API endpoint จริง
+    url = "https://bmi-tracker-final.onrender.com/api/nutrition"  # <--- ใส่ /api/nutrition ต่อท้ายด้วย!
     try:
         response = requests.post(url, json={"bmi": bmi})
         response.raise_for_status()
