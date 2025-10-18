@@ -91,11 +91,11 @@ db = DatabaseJSON()
 # Nutrition Advice
 # -----------------------------
 def get_nutrition_advice(bmi):
-    print("Sending BMI to Flask API:", bmi)
-    url = "http://127.0.0.1:5000/nutrition"  # หรือ API จริง
+    url = "http://127.0.0.1:5000/nutrition"
     try:
         response = requests.post(url, json={"bmi": bmi})
-        print("Flask API response:", response.text)
+        print("HTTP status:", response.status_code)
+        print("Response text:", response.text)  # <-- ดูว่าได้อะไรจริง
         response.raise_for_status()
         foods = response.json().get("foods", [])
         return f"Suggested food: {', '.join(foods)}"

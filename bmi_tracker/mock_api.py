@@ -28,6 +28,23 @@ def post_nutrition():
         category = "overweight"
     return jsonify({"foods": nutrition_data[category]})
 
+@app.post("/api/nutrition")
+def nutrition_api(bmi: float):
+    if bmi < 18.5:
+        category = "underweight"
+    elif bmi < 25:
+        category = "normal"
+    else:
+        category = "overweight"
+
+    nutrition_data = {
+        "underweight": ["chicken breast", "eggs", "nuts"],
+        "normal": ["balanced meal with rice, veggies, protein"],
+        "overweight": ["steamed vegetables", "salad", "lean protein"],
+    }
+
+    return {"foods": nutrition_data[category]}
+
 
 if __name__ == "__main__":
     app.run(port=5000)
