@@ -72,3 +72,8 @@ cd BMI-Tracker-SUMMERIZER
   วางแผนและกำหนดขอบเขตของโครงงาน
   ออกแบบโครงสร้างระบบและการทำงานของ API
   เขียนโค้ดหลักของระบบ เช่น BMI Calculator, Main() และ Flask Self Made Mock API
+
+
+
+  ## Canva Final Project
+  https://www.canva.com/design/DAG1TUS9EAQ/FZVkWGLI3V-sRYKnkWUQfA/edit?utm_content=DAG1TUS9EAQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
