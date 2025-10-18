@@ -102,6 +102,11 @@ def get_nutrition_advice(bmi):
     except Exception as e:
         print("Error fetching nutrition advice:", e)
         return "Unable to fetch nutrition advice right now."
+def get_nutrition_advice(bmi):
+    url = "https://your-fastapi-service.onrender.com/api/nutrition"
+    response = requests.post(url, json={"bmi": bmi})
+    foods = response.json().get("foods", [])
+    return f"Suggested food: {', '.join(foods)}"
 
 # -----------------------------
 # Web Routes

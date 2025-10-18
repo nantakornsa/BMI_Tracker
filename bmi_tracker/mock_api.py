@@ -42,7 +42,6 @@ def nutrition_api(bmi: float):
         "normal": ["balanced meal with rice, veggies, protein"],
         "overweight": ["steamed vegetables", "salad", "lean protein"],
     }
-
     return {"foods": nutrition_data[category]}
 
 
